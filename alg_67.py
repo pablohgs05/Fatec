@@ -1,0 +1,6 @@
+valor = float(input("\nDigite o valor da prestação: "))
+taxa = float(input("\nDigite a taxa: "))
+tempo = int(input("\nDigite o tempo(nº de meses): "))
+prest = valor + (valor * (taxa / 100) * tempo)
+print("\nO valor da(s) prestação(ões) em atraso é:", round(prest, 2))
+print("\n")
