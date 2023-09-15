@@ -1,0 +1,5 @@
+termo = int(input("\nDigite o 1º termo: "))
+razao = int(input("\nDigite a razão: "))
+quinto = termo * (razao^4)
+print("\nO 5º termo desta P.G. é:", quinto)
+print("\n")

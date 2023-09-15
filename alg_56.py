@@ -1,6 +1,0 @@
-n = str(input("\nDigite o nome: "))
-i = int(input("Digite a idade: "))
-print("\n\n")
-print("\nNome:", n)
-print("\nIdade:", i)
-print("\n")

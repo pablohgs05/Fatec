@@ -1,7 +1,0 @@
-sm = float(input("\nColoque o salário mínimo: "))
-qtdade = float(input("\nColoque a quantidade em quilowatt: "))
-preco = (sm / 700)
-vp = (preco * qtdade)
-vd = (vp * 0.9)
-print("\nPreço do quilowatt:", round(preco, 2),"\nValor a ser pago:", round(vp, 2),"\nValor com desconto de 10%:", round(vd, 2))
-print("\n")

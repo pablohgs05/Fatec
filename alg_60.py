@@ -1,5 +1,0 @@
-termo = int(input("\nDigite o primeiro termo: "))
-razao = int(input("\nDigite a razão: "))
-dec = termo + (9*razao)
-print("\nO décimo termo desta P.A. é:", dec)
-print("\n")
