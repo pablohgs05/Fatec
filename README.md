@@ -1,6 +1,6 @@
 # Repositório de Projetos - Curso de Banco de Dados na Fatec
 
-Bem-vindo(a) ao meu repositório dedicado aos projetos realizados durante o curso de Banco de Dados na Fatec. Aqui você encontrará uma coleção de projetos acadêmicos e exercícios práticos desenvolvidos ao longo dos semestres do curso.
+Bem-vindo(a) ao meu repositório dedicado aos projetos que estão sendo realizados durante o curso de Banco de Dados na Fatec. Aqui você encontrará uma coleção de projetos acadêmicos e exercícios práticos desenvolvidos ao longo dos semestres do curso.
 
 ## Sobre o Curso
 
