@@ -1,0 +1,6 @@
+Nessa segunda etapa, está sendo criada novos artefatos para nosso programa,
+nessa pasta será encontrada um arquivo para realizar o fechamento de turmas pelo administrador
+e uma atualização do código que estava associando alunos a essas turmas.
+Pablo/Carlos
+Mais informações:
+https://github.com/Porygon-Users/API-Porygon

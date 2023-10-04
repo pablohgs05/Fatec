@@ -1,0 +1,8 @@
+Nessa sprint, foi separada a reorganização de user storys para cada sprint do API como um todo, 
+com os integrantes reunindo informações passadas pelo SM e PO da equipe, 
+junto com um adiantamento de códigos para criar uma base para nosso programa que está sendo desenvolvido
+em Python com o Excel sendo o banco de dados.
+Além do mais, integramos o "Trello" para estar organizando as etapas e informações específicas.
+Pablo/Lucas
+Mais informações:
+https://github.com/Porygon-Users/API-Porygon
