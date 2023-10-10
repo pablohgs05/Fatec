@@ -26,15 +26,15 @@ while True: #O try serve basicamente para identificar quaisquer tipo de erro que
             print(f"\n{turma_nome} foi fechada com sucesso.") #Feedback
             return True #Retorna dizendo que o fechamento foi um sucesso
         else: #Se a aba não existir, retornará false e assim o código rodará novamente mostrando a lista de o input para selecionar qual turma.(próximas funções)
-            print(f"\n\n\n\n\n\n\n\nA {turma_nome} já foi fechada ou não foi encontrada, tente novamente.")
+            print(f"\n\n\n\n\n\n\n\nDesculpe, a {turma_nome} já foi fechada ou não foi encontrada, tente novamente.")
             return False
 
     #Função para listar turmas disponíveis
     def listar_turmas_disponiveis(book): #Cria uma lista que itera sobre todos os "sheetnames" em "book".
         abas_turmas = [sheet for sheet in book.sheetnames if sheet.startswith('Turma ') and turma_aberta(sheet)] #Atende duas condições para listar, 1º Lista apenas as "turmas" 2º Lista apenas as "turma_aberta", ou seja, sem o título de (fechada)
-        print("\n\nTurmas disponíveis para fechamento:")
+        print("\nTurmas disponíveis para fechamento:")
         for i, turma in enumerate(abas_turmas, start=1): #Loop para iterar sobre a lista acima, inicialmente "i" era para listar as turmas e mostrar no print abaixo, mas deixei ele listando e imprimindo somente o nome da turma correspondente.
-            print(f"{turma.replace('(fec5hada)', '')}")
+            print(f"{turma.replace('(fechada)', '')}")
         print() #Linha em branco, como se fosse o \n
 
     #Pergunta ao usuário qual o número da turma que deseja fechar
