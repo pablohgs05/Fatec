@@ -37,10 +37,10 @@ while True:
         if not abas_turmas:
             print("\nNão foram encontradas abas de turma na planilha.", "\n")
         else:
-            print("\nTurmas abertas:", "\n")
+            print("\nTurmas abertas:")
             for i, turma in enumerate(abas_turmas, start=1):
                 if "(fechada)" not in turma:
-                    print(f"{i}. {turma.replace('(fechada)', '')}")
+                    print(f"{turma.replace('(fechada)', '')}")
 
             #Pergunta ao usuário em qual turma deseja adicionar os alunos
             try:
@@ -99,5 +99,4 @@ while True:
         break
     else:
         print("\nOpção inválida. Escolha 1 para adicionar alunos, 2 para verificar alunos disponíveis ou 3 para sair.")
-
-print("\nPrograma encerrado.", "\n")
+print("\nAlterações realizadas com sucesso, encerrando o programa.", "\n")
