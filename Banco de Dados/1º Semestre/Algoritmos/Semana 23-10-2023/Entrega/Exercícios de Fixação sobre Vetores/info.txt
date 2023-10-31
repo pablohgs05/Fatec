@@ -1,0 +1,10 @@
+Etapa 2 - Realizar a transcrição de próprio punho dos exercícios constantes na lista abaixo para uma folha pautada ou sulfite (fixação, deverão ser entregues).
+
+Lista: 354, 365, 388 e 401.
+Data e Horário de Entrega: 01/11/2023 até as 23 hrs
+
+Observações
+
+Usar apenas vetores (por meio de lists em Python)
+Não usar matrizes, tuplas, sets ou dictionaries
+

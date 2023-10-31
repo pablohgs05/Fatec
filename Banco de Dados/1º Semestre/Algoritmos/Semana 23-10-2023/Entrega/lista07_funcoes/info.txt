@@ -1,0 +1,2 @@
+Nessa pasta está o arquivo resolvido da lista 7 que nos foi passada.
+https://lgnadalete.moodlecloud.com/pluginfile.php/182/mod_resource/content/0/lista07_funcoes.py
