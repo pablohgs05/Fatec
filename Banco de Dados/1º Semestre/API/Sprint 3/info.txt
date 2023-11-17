@@ -1,0 +1,5 @@
+Nessa terceira etapa, está sendo criada novos artefatos para nosso programa,
+nessa pasta será encontrado um arquivo para realizar a atribuição de notas e pesos durante o curso.
+Pablo/Lucas
+Mais informações:
+https://github.com/Porygon-Users/API-Porygon
