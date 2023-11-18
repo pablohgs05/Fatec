@@ -54,7 +54,7 @@ def gerenciar_alunos():
         print("\n1. Adicionar alunos às turmas")
         print("2. Ver alunos disponíveis e não alocados")
         print("3. Remover aluno de uma turma")
-        print("4. Voltar", "\n")
+        print("9. Voltar", "\n")
 
         escolha = input("Escolha uma das opções: ")
 
@@ -101,13 +101,14 @@ def gerenciar_alunos():
                             nova_linha = [nome, cpf, email]
                             linha = [nome, cpf, email]
                             aba_turma.append(linha)
-                            print(f"Aluno {nome} adicionado à {turma_desejada} com sucesso.")
+                            print(f"\nAluno {nome} adicionado à {turma_desejada} com sucesso.")
                             alunos_adicionados.add(aluno)
 
                     else:
                         print("\nTurma não encontrada ou está fechada.")
                 except ValueError:
                     print("\nDigite um número válido para selecionar a turma.")
+            book.save(caminho_arquivo_excel)
 
         elif escolha == '2':
             alunos_nao_alocados = 0
@@ -124,6 +125,7 @@ def gerenciar_alunos():
                     alunos_nao_alocados += 1
 
             print(f"\nAlunos disponíveis para alocação: {alunos_nao_alocados}")
+            book.save(caminho_arquivo_excel)
 
         elif escolha == '3':
             # Remover aluno de uma turma
@@ -131,12 +133,12 @@ def gerenciar_alunos():
             alunos_na_turma = listar_alunos_na_turma(book, turma_escolhida)
 
             if alunos_na_turma:
-                print(f"Alunos na turma {turma_escolhida}:")
+                print(f"\nAlunos na {turma_escolhida}:")
                 for i, aluno in enumerate(alunos_na_turma, start=1):
                     nome, cpf = aluno
                     print(f"{i}. {nome} (CPF: {cpf})")
 
-                escolha_aluno = input("Digite o número do aluno que deseja remover: ")
+                escolha_aluno = input("\nDigite o número do aluno que deseja remover: ")
 
                 try:
                     escolha_aluno = int(escolha_aluno)
@@ -152,7 +154,7 @@ def gerenciar_alunos():
                                 cpf = row[1].value
                                 if (nome, cpf) == (nome_aluno, cpf_aluno):
                                     aba_turma.delete_rows(row[0].row)
-                                    print(f"Aluno {nome_aluno} removido da turma {turma_do_aluno}.")
+                                    print(f"Aluno {nome_aluno} removido da {turma_do_aluno}.")
                                     break
                         else:
                             print("Aluno não encontrado em nenhuma turma.")
@@ -162,11 +164,13 @@ def gerenciar_alunos():
                     print("Escolha de aluno inválida.")
             else:
                 print("Turma não encontrada ou não há alunos nessa turma.")
+            book.save(caminho_arquivo_excel)
 
-        elif escolha == '4':
+        elif escolha == '9':
+            book.save(caminho_arquivo_excel)
             break
         else:
-            print("\nOpção inválida. Escolha 1 para adicionar alunos, 2 para verificar alunos disponíveis, 3 para remover um aluno de uma turma, ou 4 para sair.")
+            print("\nOpção inválida. Escolha 1 para adicionar alunos, 2 para verificar alunos disponíveis, 3 para remover um aluno de uma turma, ou 9 para sair.")
 
 
     # Salve as alterações no arquivo Excel
@@ -209,7 +213,7 @@ def gerenciar_professores():
         print("\n1. Adicionar professores às turmas")
         print("2. Ver professores disponíveis e não alocados")
         print("3. Remover professor de uma turma")
-        print("4. Voltar", "\n")
+        print("9. Voltar", "\n")
 
         escolha = input("Escolha uma das opções: ")
 
@@ -227,7 +231,7 @@ def gerenciar_professores():
 
                 # Pergunta ao usuário em qual turma deseja adicionar os professores
                 try:
-                    indice_turma = int(input("Digite o número da turma que deseja adicionar os professores: ")) - 1
+                    indice_turma = int(input("\nDigite o número da turma que deseja adicionar os professores: ")) - 1
 
                     if 0 <= indice_turma < len(abas_turmas) and "(fechada)" not in abas_turmas[indice_turma]:
                         turma_desejada = abas_turmas[indice_turma]
@@ -277,10 +281,11 @@ def gerenciar_professores():
                             print(f"Professor {nome} adicionado à {turma_desejada} com sucesso.")
                             professores_adicionados.add(professor)
 
-                        else:
-                            print("\nTurma não encontrada ou está fechada.")
+                    else:
+                        print("\nTurma não encontrada ou está fechada.")
                 except ValueError:
                     print("\nDigite um número válido para selecionar a turma.")
+            book.save(caminho_arquivo_excel)
 
         elif escolha == '2':
             professores_nao_alocados = 0
@@ -297,6 +302,7 @@ def gerenciar_professores():
                     professores_nao_alocados += 1
 
             print(f"\nProfessores disponíveis para alocação: {professores_nao_alocados}")
+            book.save(caminho_arquivo_excel)
 
         elif escolha == '3':
             # Remover professor de uma turma
@@ -309,7 +315,7 @@ def gerenciar_professores():
                     nome, cpf = professor
                     print(f"{i}. {nome} (CPF: {cpf})")
 
-                escolha_professor = input("Digite o número do professor que deseja remover: ")
+                escolha_professor = input("\nDigite o número do professor que deseja remover: ")
 
                 try:
                     escolha_professor = int(escolha_professor)
@@ -325,17 +331,19 @@ def gerenciar_professores():
                                 cpf = row[1].value
                                 if (nome, cpf) == (nome_professor, cpf_professor):
                                     aba_turma.delete_rows(row[0].row)
-                                    print(f"Professor {nome_professor} removido da turma {turma_do_professor}.")
+                                    print(f"Professor {nome_professor} removido da {turma_do_professor}.")
                                     break
                         else:
                             print("Professor não encontrado em nenhuma turma.")
                 except ValueError:
                     print("Escolha de professor inválida.")
+                book.save(caminho_arquivo_excel)
 
-        elif escolha == '4':
+        elif escolha == '9':
+            book.save(caminho_arquivo_excel)
             break
         else:
-            print("\nOpção inválida. Escolha 1 para adicionar professores, 2 para verificar professores disponíveis, 3 para remover um professor de uma turma, ou 4 para sair.")
+            print("\nOpção inválida. Escolha 1 para adicionar professores, 2 para verificar professores disponíveis, 3 para remover um professor de uma turma, ou 9 para sair.")
 
 
     # Salve as alterações no arquivo Excel
@@ -369,7 +377,7 @@ def grupos():
         
         # Exibir a quantidade de alunos na turma
         num_alunos = len(alunos)
-        print(f"\nA turma '{turma_nome}' possui {num_alunos} alunos.")
+        print(f"\nA {turma_nome} possui {num_alunos} alunos.")
         
         # Calcular o número total de grupos
         num_grupos = num_alunos // num_alunos_por_grupo
@@ -427,7 +435,7 @@ def grupos():
             print("\nOpções:")
             print("\n1. Criar grupos")
             print("2. Listar turmas existentes")
-            print("3. Voltar", "\n")
+            print("9. Voltar", "\n")
             
             escolha = input("Escolha uma das opções: ")
             
@@ -439,9 +447,12 @@ def grupos():
                         print(f"\nA turma '{turma}' possui {alunos_na_turma} alunos.")
                         alunos_por_grupo = int(input("\nDigite o número de alunos por grupo: "))
                         criar_grupos(caminho_arquivo_excel, turma, alunos_por_grupo)
+                book.save(caminho_arquivo_excel)
             elif escolha == '2':
                 listar_turmas(caminho_arquivo_excel)
-            elif escolha == '3':
+                book.save(caminho_arquivo_excel)
+            elif escolha == '9':
+                book.save(caminho_arquivo_excel)
                 break
             else:
                 print("\nOpção inválida. Tente novamente.", "\n")
@@ -480,20 +491,22 @@ def turmas():
         for turma_nome in turmas_a_excluir:
             if turma_nome in book.sheetnames:
                 book.remove(book[turma_nome])
-                print(f"\nTurma {turma_nome} excluída com sucesso.")
+                print(f"\n{turma_nome} excluída com sucesso.")
             else:
                 print(f"\nA turma {turma_nome} não foi encontrada.")
         book.save(caminho_arquivo_excel)
 
     # Função para fechar turmas
     def fechar_turmas():
-        while True:
+        continuar_programa = True
+
+        while continuar_programa:
             try:
                 # Carrega o arquivo
                 book = openpyxl.load_workbook(caminho_arquivo_excel)
             except FileNotFoundError:
                 print("O banco de dados não foi encontrado.")
-                exit()
+                break
 
             def fechar_turma(book, turma_numero):
                 turma_nome = f"Turma {turma_numero}"
@@ -522,21 +535,24 @@ def turmas():
                 while True:
                     continuar = input("\nDeseja continuar fechando turmas? (S para continuar ou N para sair): ").strip().lower()
                     if continuar == 's':
+                        book.save(caminho_arquivo_excel)
                         break
                     elif continuar == 'n':
                         book.save(caminho_arquivo_excel)  # Salva as alterações antes de sair
-                        exit()
+                        continuar_programa = False
+                        break
                     else:
                         print("\n\nResposta inválida, por favor, tente novamente.")
 
     # Loop principal
-    while True:
+    continuar_programa = True
+    while continuar_programa:
         print("\nOpções:")
         print("\n1. Criar nova turma")
         print("2. Visualizar turmas")
         print("3. Excluir turmas")
         print("4. Fechar turmas")
-        print("5. Voltar", "\n")
+        print("9. Voltar", "\n")
         
         opcao = input('Escolha uma das opções: ')
         
@@ -546,16 +562,21 @@ def turmas():
                 proxima_turma = sum(1 for sheet in book.sheetnames if sheet.startswith("Turma ")) + 1
                 criar_nova_turma(book, proxima_turma)
                 print(f"\nTurma {proxima_turma} criada com sucesso.")
+                book.save(caminho_arquivo_excel)
         elif opcao == "2":
             mostrar_numero_de_turmas(book)
         elif opcao == "3":
             turmas_a_excluir = input("Digite o nome das turmas que deseja excluir: ")
             turmas_a_excluir = [turma.strip() for turma in turmas_a_excluir.split(",")]
             excluir_turmas(book, turmas_a_excluir)
+            book.save(caminho_arquivo_excel)
         elif opcao == "4":
             fechar_turmas()
+            book.save(caminho_arquivo_excel)
 
-        elif opcao == "5":
+        elif opcao == "9":
+            book.save(caminho_arquivo_excel)
+            continuar_programa = False
             break
         else:
             print("\nOpção inválida.", "\n")
@@ -568,9 +589,9 @@ def turmas():
 while True:
     try:
         print("\n\n\nOpções:")
-        print("\n1. Associação de alunos e professores")
-        print("2. Grupos")
-        print("3. Criação de turmas")
+        print("\n1. Gerenciar alunos e professores")
+        print("2. Gerenciar turmas")
+        print("3. Gerenciar grupos")
         print("4. Sair do programa", "\n")
         escolha = int(input("Escolha uma das opções: "))
 
@@ -579,40 +600,28 @@ while True:
                 print("\n\nOpções:")
                 print("\n1. Gerenciar alunos")
                 print("2. Gerenciar professores")
-                print("3. Voltar", "\n")
+                print("9. Voltar", "\n")
                 escolha1 = input("Escolha uma das opções: ")
                 if escolha1 == '1':
                     gerenciar_alunos()
                 elif escolha1 == '2':
                     gerenciar_professores()
-                elif escolha1 == '3':
+                elif escolha1 == '9':
+                    book.save(caminho_arquivo_excel)
                     break
                 else:
                     print("\nOpção inválida, tente novamente.")
             elif escolha == 2:
-                print("\n\nOpções:")
-                print("\n1. Gerenciar grupos")
-                print("2. Voltar", "\n")
-                escolha2 = input("Escolha uma das opções: ")
-                if escolha2 == '1':
-                    grupos()
-                elif escolha2 == '2':
-                    break
-                else:
-                    print("\nOpção inválida, tente novamente.")
-            elif escolha == 3:
-                print("\n\nOpções:")
-                print("\n1. Gerenciar turmas")
-                print("2. Voltar", "\n")
-                escolha3 = input("Escolha uma das opções: ")
-                if escolha3 == '1':
                     turmas()
-                elif escolha3 == '2':
+                    book.save(caminho_arquivo_excel)
                     break
-                else:
-                    print("\nOpção inválida, tente novamente.")
+            elif escolha == 3:
+                    book.save(caminho_arquivo_excel)
+                    grupos()
+                    break
             elif escolha == 4:
                 print("\n\nAlterações realizadas com sucesso, encerrando o programa.", "\n")
+                book.save(caminho_arquivo_excel)
                 exit()
             else:
                 print("\n\n\n\nOpção inválida, tente novamente.")
