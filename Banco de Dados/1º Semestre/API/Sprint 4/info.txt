@@ -1,4 +1,4 @@
 Estamos realizando algumas correções finais e nessa pasta conterá alguns artefatos, como o menu que estará integrando as principais funções do código.
-Pablo/João/Lucas/Carlos
+Pablo/João/Lucas/Isaque
 Mais informações:
 https://github.com/Porygon-Users/API-Porygon
