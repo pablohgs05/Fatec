@@ -1,6 +1,7 @@
 import java.util.Scanner;
+
 public class Atividade_3 {
-        public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner nota = new Scanner(System.in);
 
         float p1;
@@ -9,7 +10,8 @@ public class Atividade_3 {
         float api;
         float sub;
         float x;
-        float lp1; 
+        float lp1;
+        
         while (true) {
             System.out.print("\nNota da P1: ");
             p1 = nota.nextFloat();
@@ -23,19 +25,21 @@ public class Atividade_3 {
             sub = nota.nextFloat();
             System.out.println("Nota das atividades extras: ");
             x = nota.nextFloat();
-    
-            lp1 = (float)((p1*0.6+(((e1+e2)/2)* 0.4)) * 0.5 + (Math.max(((p1*0.6+((e1+e2)/2)*0.4)-5.9), 0)/((p1*0.6+((e1+e2)/2)*0.4)-5.9))*(api*0.5)+x+(sub*0.2));
-    
+
+            lp1 = (float) ((p1 * 0.6 + (((e1 + e2) / 2) * 0.4)) * 0.5
+                    + (Math.max(((p1 * 0.6 + ((e1 + e2) / 2) * 0.4) - 5.9), 0) / ((p1 * 0.6 + ((e1 + e2) / 2) * 0.4) - 5.9))
+                    * (api * 0.5) + x + (sub * 0.2));
+
             while (true) {
-                if(lp1 > 10){
+                if (lp1 > 10) {
                     System.out.println("\n\n\n\nDigite novamente as notas");
                     break;
-                }else{
+                } else {
                     System.out.println("Sua média é " + lp1);
+                    nota.close(); // Adicionando o scanner.close() para fechar o recurso Scanner
                     return;
-                }    
-            } 
+                }
+            }
         }
-        
-    }   
+    }
 }
