@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GarrafaController">
+    <children>
+        <Label layoutX="50.0" layoutY="20.0" text="Volume (ml):" />
+        <TextField fx:id="volumeField" layoutX="150.0" layoutY="20.0" />
+        <Label layoutX="50.0" layoutY="60.0" text="Material:" />
+        <TextField fx:id="materialField" layoutX="150.0" layoutY="60.0" />
+        <Label layoutX="50.0" layoutY="100.0" text="Conteúdo:" />
+        <TextField fx:id="conteudoField" layoutX="150.0" layoutY="100.0" />
+        <Button layoutX="163.0" layoutY="150.0" mnemonicParsing="false" onAction="#calcularVolumeEmLitros" text="Calcular Volume em Litros" />
+        <Label fx:id="volumeLitrosLabel" layoutX="50.0" layoutY="180.0" />
+    </children>
+</AnchorPane>
