@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="346.0" layoutY="30.0" text="Carro" />
+      <TextField layoutX="240.0" layoutY="146.0" />
+      <Button layoutX="400.0" layoutY="520.0" mnemonicParsing="false" text="Enviar" />
+      <Label layoutX="131.0" layoutY="152.0" text="carro" />
+      <Label layoutX="138.0" layoutY="264.0" text="marca" />
+      <Label layoutX="142.0" layoutY="391.0" text="Nível" />
+      <TextField layoutX="240.0" layoutY="258.0" />
+      <TextField layoutX="240.0" layoutY="385.0" />
+      <ImageView fitHeight="156.0" fitWidth="377.0" layoutX="486.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Carro_image.jpeg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

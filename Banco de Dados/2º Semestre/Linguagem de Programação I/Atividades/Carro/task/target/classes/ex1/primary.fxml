@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex1.PrimaryController">
+   <children>
+      <Label layoutX="346.0" layoutY="30.0" text="Computadores" />
+      <TextField fx:id="ramField" layoutX="240.0" layoutY="146.0" promptText="RAM" />
+      <Button layoutX="400.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleComputador" text="Enviar" />
+      <Label layoutX="131.0" layoutY="152.0" text="RAM" />
+      <Label layoutX="138.0" layoutY="264.0" text="Processador" />
+      <Label layoutX="142.0" layoutY="391.0" text="Placa de vídeo" />
+      <TextField fx:id="processadorField" layoutX="240.0" layoutY="258.0" promptText="processador" />
+      <TextField fx:id="placaDeVideoField" layoutX="240.0" layoutY="385.0" promptText="placa de vídeo" />
+      <ImageView fitHeight="223.0" fitWidth="361.0" layoutX="486.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@carros.jpeg" />
+         </image>
+      </ImageView>
+      <Button layoutX="579.0" layoutY="444.0" mnemonicParsing="false" onAction="#showComputadores" text="Exibir" />
+   </children>
+</AnchorPane>
