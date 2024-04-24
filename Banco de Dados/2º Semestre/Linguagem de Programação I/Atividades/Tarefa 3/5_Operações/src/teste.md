@@ -47,7 +47,7 @@
     - **Resultado:** `multiplicar = 35/12`
 
 
-- **Soma e Subtração encadeadas (f11+f12-f13):**
+- **Soma e subtração (f11+f12-f13):**
     - `soma3 = 2/1 + 1/3 = 7/3`
     - `subtracao3 = 7/3 - 5/4`
         - `novoDenominador = 12`
@@ -55,7 +55,7 @@
     - **Resultado:** `subtracao3 = 13/12`
 
 
-- **Subtração e Multiplicação encadeadas (f3-f1*f14):**
+- **Subtração e multiplicação (f3-f1*f14):**
     - `subtracao4 = 4/3 - 2/5`
         - `novoDenominador = 15`
         - `novoNumerador = (4*5) - (2*3) = 20 - 6 = 14`
@@ -65,7 +65,7 @@
     - **Resultado:** `multiplicar2 = 70/30 = 7/3`
 
 
-- **Soma Encadeada (f3+f1+f17):**
+- **Soma dupla (f3+f1+f17):**
     - `soma4 = 4/3 + 2/5`
         - `novoDenominador = 15`
         - `novoNumerador = (4*5) + (2*3) = 20 + 6 = 26`
