@@ -3,20 +3,36 @@ public class Fracao {
     private int denominador;
 
     public Fracao(int numerador, int denominador) {
-        this.numerador = numerador;
-        if (denominador != 0) {
-            this.denominador = denominador;
-        } else {
+        if (denominador == 0) {
             throw new IllegalArgumentException("O denominador não pode ser zero.");
+        }
+        this.numerador = numerador;
+        this.denominador = denominador;
+        simplificar();
+    }
+
+    private int mdc(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return mdc(b, a % b);
+    }
+
+    private void simplificar() {
+        int divisorComum = mdc(Math.abs(numerador), Math.abs(denominador));
+        numerador /= divisorComum;
+        denominador /= divisorComum;
+        // Garantir que o sinal esteja no numerador
+        if (denominador < 0) {
+            numerador *= -1;
+            denominador *= -1;
         }
     }
 
     public Fracao somar(Fracao outra) {
         int novoDenominador = this.denominador * outra.denominador;
         int novoNumerador = (this.numerador * outra.denominador) + (outra.numerador * this.denominador);
-
         return new Fracao(novoNumerador, novoDenominador);
-        
     }
 
     public Fracao subtrair(Fracao outra) {
@@ -43,5 +59,4 @@ public class Fracao {
     public void imprimir() {
         System.out.println(numerador + "/" + denominador);
     }
-
 }

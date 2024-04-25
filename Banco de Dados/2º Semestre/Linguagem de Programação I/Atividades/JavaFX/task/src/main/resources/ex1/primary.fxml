@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex1.PrimaryController">
    <tabs>
       <Tab text="Computador">
@@ -24,9 +23,18 @@
                   </Label>
                   <TextField fx:id="ramField" layoutX="219.0" layoutY="190.0" />
                   <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleComputador" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
-                  <Label layoutX="93.0" layoutY="194.0" text="RAM" />
-                  <Label layoutX="93.0" layoutY="283.0" text="Processador" />
-                  <Label layoutX="93.0" layoutY="389.0" text="Placa de vídeo" />
+                  <Label layoutX="57.0" layoutY="187.0" prefHeight="32.0" prefWidth="52.0" text="RAM">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="57.0" layoutY="278.0" text="Processador">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="57.0" layoutY="384.0" text="Placa de vídeo">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
                   <TextField fx:id="processadorField" layoutX="219.0" layoutY="279.0" />
                   <TextField fx:id="placaDeVideoField" layoutX="219.0" layoutY="385.0" />
                   <ImageView fitHeight="283.0" fitWidth="220.0" layoutX="433.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
@@ -52,9 +60,18 @@
                         </Label>
                         <TextField fx:id="txtCorCarro" layoutX="219.0" layoutY="190.0" />
                         <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleCarro" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
-                        <Label layoutX="93.0" layoutY="194.0" text="Cor" />
-                        <Label layoutX="93.0" layoutY="283.0" text="Ano" />
-                        <Label layoutX="93.0" layoutY="389.0" text="Marca" />
+                        <Label layoutX="57.0" layoutY="189.0" text="Cor">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="278.0" text="Ano">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="384.0" text="Marca">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
                         <TextField fx:id="txtAnoCarro" layoutX="219.0" layoutY="279.0" />
                         <TextField fx:id="txtMarcaCarro" layoutX="219.0" layoutY="385.0" />
                         <ImageView fitHeight="224.0" fitWidth="281.0" layoutX="391.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
@@ -82,9 +99,18 @@
                         </Label>
                         <TextField fx:id="txtMarcaCadeira" layoutX="219.0" layoutY="190.0" />
                         <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleCadeira" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
-                        <Label layoutX="93.0" layoutY="194.0" text="Marca" />
-                        <Label layoutX="93.0" layoutY="283.0" text="Cor" />
-                        <Label layoutX="93.0" layoutY="389.0" text="Material" />
+                        <Label layoutX="57.0" layoutY="189.0" text="Marca">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="278.0" text="Cor">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="384.0" text="Material">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
                         <TextField fx:id="txtCorCadeira" layoutX="219.0" layoutY="279.0" />
                         <TextField fx:id="txtMaterialCadeira" layoutX="219.0" layoutY="385.0" />
                         <ImageView fitHeight="188.0" fitWidth="295.0" layoutX="384.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
