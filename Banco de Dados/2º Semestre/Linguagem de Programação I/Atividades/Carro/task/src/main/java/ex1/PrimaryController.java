@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -24,6 +25,25 @@ public class PrimaryController {
 
     @FXML
     private TextField placaDeVideoField;
+
+    @FXML
+    private TextField txtAnoCarro;
+
+    @FXML
+    private TextField txtCorCadeira;
+
+    @FXML
+    private TextField txtCorCarro;
+
+    @FXML
+    private TextField txtMarcaCadeira;
+
+    @FXML
+    private TextField txtMarcaCarro;
+
+    @FXML
+    private TextField txtMaterialCadeira;
+
 
     @FXML
     void handleComputador(){
@@ -54,5 +74,22 @@ public class PrimaryController {
         Scene scene = new Scene(vbox, 400, 100);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    void handleCadeira(ActionEvent event) {
+
+    }
+    @FXML
+    void showCadeiras(ActionEvent event) {
+
+    }
+    @FXML
+    void handleCarro(ActionEvent event) {
+
+    }
+    @FXML
+    void showCarros(ActionEvent event) {
+
     }
 }
