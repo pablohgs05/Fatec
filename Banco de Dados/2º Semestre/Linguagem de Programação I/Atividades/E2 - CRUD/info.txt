@@ -1,0 +1,3 @@
+Apresentação:
+- Utilizar uma classe do item 3 da tarefa E1, desenvolver código para que dados de um objeto sejam armazenados em um banco de dados (escolha livre: pocho, mysql, etc);
+- Deve ser possível realizar o CRUD completo
