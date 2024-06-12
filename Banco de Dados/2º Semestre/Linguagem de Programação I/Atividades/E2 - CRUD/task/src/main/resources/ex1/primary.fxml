@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ex1.PrimaryController">
+   <tabs>
+      <Tab text="Computador">
+         <content>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
+               <children>
+                  <Label layoutX="164.0" layoutY="27.0" prefHeight="99.0" prefWidth="367.0" text="Computadores">
+                     <font>
+                        <Font name="Arial" size="55.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ramField" layoutX="219.0" layoutY="190.0" />
+                  <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleComputador" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
+                  <Label layoutX="57.0" layoutY="187.0" prefHeight="32.0" prefWidth="52.0" text="RAM">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="57.0" layoutY="278.0" text="Processador">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="57.0" layoutY="384.0" text="Placa de vídeo">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <TextField fx:id="processadorField" layoutX="219.0" layoutY="279.0" />
+                  <TextField fx:id="placaDeVideoField" layoutX="219.0" layoutY="385.0" />
+                  <ImageView fitHeight="283.0" fitWidth="220.0" layoutX="433.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@compiuter.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="454.0" layoutY="519.0" mnemonicParsing="false" onAction="#showComputadores" prefHeight="36.0" prefWidth="77.0" text="Exibir" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Carro">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
+                     <children>
+                        <Label layoutX="255.0" layoutY="26.0" prefHeight="99.0" prefWidth="227.0" text="Carros">
+                           <font>
+                              <Font name="Arial" size="55.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCorCarro" layoutX="219.0" layoutY="190.0" />
+                        <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleCarro" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
+                        <Label layoutX="57.0" layoutY="189.0" text="Cor">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="278.0" text="Ano">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="384.0" text="Marca">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="txtAnoCarro" layoutX="219.0" layoutY="279.0" />
+                        <TextField fx:id="txtMarcaCarro" layoutX="219.0" layoutY="385.0" />
+                        <ImageView fitHeight="224.0" fitWidth="281.0" layoutX="391.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@carro.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="454.0" layoutY="519.0" mnemonicParsing="false" onAction="#showCarros" prefHeight="36.0" prefWidth="77.0" text="Exibir" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Cadeira">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
+                     <children>
+                        <Label layoutX="255.0" layoutY="26.0" prefHeight="99.0" prefWidth="227.0" text="Cadeiras">
+                           <font>
+                              <Font name="Arial" size="55.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtMarcaCadeira" layoutX="219.0" layoutY="190.0" />
+                        <Button layoutX="179.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleCadeira" prefHeight="36.0" prefWidth="77.0" text="Enviar" />
+                        <Label layoutX="57.0" layoutY="189.0" text="Marca">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="278.0" text="Cor">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label layoutX="57.0" layoutY="384.0" text="Material">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCorCadeira" layoutX="219.0" layoutY="279.0" />
+                        <TextField fx:id="txtMaterialCadeira" layoutX="219.0" layoutY="385.0" />
+                        <ImageView fitHeight="188.0" fitWidth="295.0" layoutX="384.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cadeira.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="454.0" layoutY="519.0" mnemonicParsing="false" onAction="#showCadeiras" prefHeight="36.0" prefWidth="77.0" text="Exibir" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
