@@ -92,6 +92,8 @@ void showComputadores() {
 
         Cadeira cadeira = new Cadeira(marca, cor, material);
         listaDeCadeiras.add(cadeira);
+        Cadeirabd banana = new Cadeirabd();
+        banana.criar(cadeira); 
     }
 
     @FXML
