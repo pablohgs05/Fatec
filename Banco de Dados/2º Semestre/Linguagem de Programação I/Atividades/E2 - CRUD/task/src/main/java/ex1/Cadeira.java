@@ -1,52 +1,51 @@
 package ex1;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 public class Cadeira {
-    private StringProperty marca;
-    private StringProperty cor;
-    private StringProperty material;
+    private int id;
+    private String marca;
+    private String cor;
+    private String material;
+
+    public Cadeira(int id, String marca, String cor, String material) {
+        this.id = id;
+        this.marca = marca;
+        this.cor = cor;
+        this.material = material;
+    }
 
     public Cadeira(String marca, String cor, String material) {
-        this.marca = new SimpleStringProperty(marca);
-        this.cor = new SimpleStringProperty(cor);
-        this.material = new SimpleStringProperty(material);
+        this(-1, marca, cor, material); // Id será definido pelo banco de dados
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {
-        return marca.get();
-    }
-
-    public void setMarca(String marca) {
-        this.marca.set(marca);
-    }
-
-    public StringProperty marcaProperty() {
         return marca;
     }
 
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     public String getCor() {
-        return cor.get();
-    }
-
-    public void setCor(String cor) {
-        this.cor.set(cor);
-    }
-
-    public StringProperty corProperty() {
         return cor;
     }
 
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
     public String getMaterial() {
-        return material.get();
+        return material;
     }
 
     public void setMaterial(String material) {
-        this.material.set(material);
-    }
-
-    public StringProperty materialProperty() {
-        return material;
+        this.material = material;
     }
 }

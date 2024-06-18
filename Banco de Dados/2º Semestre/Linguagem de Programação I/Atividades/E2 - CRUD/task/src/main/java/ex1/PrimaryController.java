@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
@@ -60,6 +62,8 @@ public class PrimaryController {
     @FXML
     private TableColumn<Cadeira, String> columnMaterial;
 
+    private Cadeirabd cadeiraBD = new Cadeirabd();
+
     @FXML
     void handleComputador() {
         String ram = ramField.getText();
@@ -106,8 +110,8 @@ public class PrimaryController {
 
         Cadeira cadeira = new Cadeira(marca, cor, material);
         listaDeCadeiras.add(cadeira);
-        Cadeirabd banana = new Cadeirabd();
-        banana.criar(cadeira);
+        cadeiraBD.criar(cadeira);
+        carregarCadeiras();
     }
 
     @FXML
@@ -172,23 +176,71 @@ public class PrimaryController {
 
     @FXML
     private void initialize() {
-        if (columnMarca != null) {
-            columnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        } else {
-            System.err.println("columnMarca is null");
-        }
-        if (columnCor != null) {
-            columnCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
-        } else {
-            System.err.println("columnCor is null");
-        }
-        if (columnMaterial != null) {
-            columnMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
-        } else {
-            System.err.println("columnMaterial is null");
-        }
+        columnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        columnCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
+        columnMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
 
         // Configura a tabela
         tableCadeiras.setItems(listaDeCadeiras);
+        carregarCadeiras();
+    }
+
+    private void carregarCadeiras() {
+        listaDeCadeiras.clear();
+        listaDeCadeiras.addAll(cadeiraBD.readAll());
+    }
+
+    @FXML
+    void editCadeira(ActionEvent event) {
+        Cadeira selectedCadeira = tableCadeiras.getSelectionModel().getSelectedItem();
+        if (selectedCadeira != null) {
+            txtMarcaCadeira.setText(selectedCadeira.getMarca());
+            txtCorCadeira.setText(selectedCadeira.getCor());
+            txtMaterialCadeira.setText(selectedCadeira.getMaterial());
+
+            tableCadeiras.getSelectionModel().clearSelection();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma seleção");
+            alert.setHeaderText("Nenhuma cadeira selecionada");
+            alert.setContentText("Por favor, selecione uma cadeira na tabela.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void updateCadeira(ActionEvent event) {
+        Cadeira selectedCadeira = tableCadeiras.getSelectionModel().getSelectedItem();
+        if (selectedCadeira != null) {
+            selectedCadeira.setMarca(txtMarcaCadeira.getText());
+            selectedCadeira.setCor(txtCorCadeira.getText());
+            selectedCadeira.setMaterial(txtMaterialCadeira.getText());
+
+            cadeiraBD.atualizar(selectedCadeira);
+            tableCadeiras.refresh();
+            carregarCadeiras();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma seleção");
+            alert.setHeaderText("Nenhuma cadeira selecionada");
+            alert.setContentText("Por favor, selecione uma cadeira na tabela.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void deleteCadeira(ActionEvent event) {
+        Cadeira selectedCadeira = tableCadeiras.getSelectionModel().getSelectedItem();
+        if (selectedCadeira != null) {
+            listaDeCadeiras.remove(selectedCadeira);
+            cadeiraBD.deletar(selectedCadeira);
+            carregarCadeiras();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Nenhuma seleção");
+            alert.setHeaderText("Nenhuma cadeira selecionada");
+            alert.setContentText("Por favor, selecione uma cadeira na tabela.");
+            alert.showAndWait();
+        }
     }
 }

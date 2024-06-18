@@ -130,21 +130,24 @@
       <Tab text="CRUD">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
-                     <children>
-                        <TableView fx:id="tableCadeiras" layoutX="146.0" layoutY="134.0" prefHeight="349.0" prefWidth="404.0">
-                        <columns>
-                           <TableColumn fx:id="columnMarca" prefWidth="113.0" text="Marca" />
-                           <TableColumn fx:id="columnCor" prefWidth="140.0" text="Cor" />
-                           <TableColumn fx:id="columnMaterial" prefWidth="150.0" text="Material" />
-                        </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </children>
+                  <children>
+                     <AnchorPane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
+                        <children>
+                              <TableView fx:id="tableCadeiras" layoutX="146.0" layoutY="134.0" prefHeight="349.0" prefWidth="404.0">
+                                 <columns>
+                                    <TableColumn fx:id="columnMarca" prefWidth="113.0" text="Marca" />
+                                    <TableColumn fx:id="columnCor" prefWidth="140.0" text="Cor" />
+                                    <TableColumn fx:id="columnMaterial" prefWidth="150.0" text="Material" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="146.0" layoutY="500.0" mnemonicParsing="false" onAction="#editCadeira" text="Editar" />
+                              <Button layoutX="246.0" layoutY="500.0" mnemonicParsing="false" onAction="#deleteCadeira" text="Excluir" />
+                        </children>
+                     </AnchorPane>
+                  </children>
             </AnchorPane>
          </content>
       </Tab>
+
    </tabs>
 </TabPane>
