@@ -133,12 +133,12 @@
                <children>
                   <AnchorPane layoutX="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="695.0">
                      <children>
-                        <TableView layoutX="146.0" layoutY="134.0" prefHeight="349.0" prefWidth="404.0">
-                          <columns>
-                            <TableColumn fx:id="idMarca" prefWidth="113.0" text="MARCA" />
-                            <TableColumn fx:id="idCor" prefWidth="140.0" text="COR" />
-                              <TableColumn fx:id="idMaterial" prefWidth="150.0" text="MATERIAL" />
-                          </columns>
+                        <TableView fx:id="tableCadeiras" layoutX="146.0" layoutY="134.0" prefHeight="349.0" prefWidth="404.0">
+                        <columns>
+                           <TableColumn fx:id="columnMarca" prefWidth="113.0" text="Marca" />
+                           <TableColumn fx:id="columnCor" prefWidth="140.0" text="Cor" />
+                           <TableColumn fx:id="columnMaterial" prefWidth="150.0" text="Material" />
+                        </columns>
                         </TableView>
                      </children>
                   </AnchorPane>

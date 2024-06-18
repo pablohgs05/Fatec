@@ -13,7 +13,7 @@ public class Cadeirabd {
     private Connection connect() {
         String url = "jdbc:mysql://localhost:3306/CadeiraDB";
         String user = "root";
-        String password = "fatec";
+        String password = "1234";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);

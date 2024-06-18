@@ -8,7 +8,10 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -46,6 +49,18 @@ public class PrimaryController {
     private TextField txtMaterialCadeira;
 
     @FXML
+    private TableView<Cadeira> tableCadeiras;
+
+    @FXML
+    private TableColumn<Cadeira, String> columnMarca;
+
+    @FXML
+    private TableColumn<Cadeira, String> columnCor;
+
+    @FXML
+    private TableColumn<Cadeira, String> columnMaterial;
+
+    @FXML
     void handleComputador() {
         String ram = ramField.getText();
         String processador = processadorField.getText();
@@ -54,35 +69,34 @@ public class PrimaryController {
         listaDeComputadores.addAll(ram, processador, placaDeVideo);
     }
 
-@FXML
-void showComputadores() {
-    Stage stage = new Stage();
-    stage.setTitle("Computadores");
+    @FXML
+    void showComputadores() {
+        Stage stage = new Stage();
+        stage.setTitle("Computadores");
 
-    VBox vbox = new VBox();
-    vbox.setSpacing(10);
-    vbox.setPadding(new Insets(10, 10, 10, 10));
+        VBox vbox = new VBox();
+        vbox.setSpacing(10);
+        vbox.setPadding(new Insets(10, 10, 10, 10));
 
-    for (int i = 0; i < listaDeComputadores.size(); i += 3) {
-        String ram = listaDeComputadores.get(i);
-        String processador = listaDeComputadores.get(i + 1);
-        String placaDeVideo = listaDeComputadores.get(i + 2);
+        for (int i = 0; i < listaDeComputadores.size(); i += 3) {
+            String ram = listaDeComputadores.get(i);
+            String processador = listaDeComputadores.get(i + 1);
+            String placaDeVideo = listaDeComputadores.get(i + 2);
 
-        Label ramLabel = new Label("RAM: " + ram);
-        Label processadorLabel = new Label("Processador: " + processador);
-        Label placaDeVideoLabel = new Label("Placa de vídeo: " + placaDeVideo);
+            Label ramLabel = new Label("RAM: " + ram);
+            Label processadorLabel = new Label("Processador: " + processador);
+            Label placaDeVideoLabel = new Label("Placa de vídeo: " + placaDeVideo);
 
-        vbox.getChildren().addAll(ramLabel, processadorLabel, placaDeVideoLabel);
+            vbox.getChildren().addAll(ramLabel, processadorLabel, placaDeVideoLabel);
+        }
+
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(vbox);
+
+        Scene scene = new Scene(scrollPane, 400, 300);
+        stage.setScene(scene);
+        stage.show();
     }
-
-    ScrollPane scrollPane = new ScrollPane();
-    scrollPane.setContent(vbox);
-
-    Scene scene = new Scene(scrollPane, 400, 300);
-    stage.setScene(scene);
-    stage.show();
-}
-
 
     @FXML
     void handleCadeira(ActionEvent event) {
@@ -93,29 +107,29 @@ void showComputadores() {
         Cadeira cadeira = new Cadeira(marca, cor, material);
         listaDeCadeiras.add(cadeira);
         Cadeirabd banana = new Cadeirabd();
-        banana.criar(cadeira); 
+        banana.criar(cadeira);
     }
 
     @FXML
     void showCadeiras(ActionEvent event) {
         Stage stage = new Stage();
         stage.setTitle("Cadeiras");
-    
+
         VBox vbox = new VBox();
         vbox.setSpacing(10);
         vbox.setPadding(new Insets(10, 10, 10, 10));
-    
+
         for (Cadeira cadeira : listaDeCadeiras) {
             Label marcaLabel = new Label("Marca: " + cadeira.getMarca());
             Label corLabel = new Label("Cor: " + cadeira.getCor());
             Label materialLabel = new Label("Material: " + cadeira.getMaterial());
-    
+
             vbox.getChildren().addAll(marcaLabel, corLabel, materialLabel);
         }
-    
+
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(vbox);
-    
+
         Scene scene = new Scene(scrollPane, 400, 300);
         stage.setScene(scene);
         stage.show();
@@ -135,24 +149,46 @@ void showComputadores() {
     void showCarros(ActionEvent event) {
         Stage stage = new Stage();
         stage.setTitle("Carros");
-    
+
         VBox vbox = new VBox();
         vbox.setSpacing(10);
         vbox.setPadding(new Insets(10, 10, 10, 10));
-    
+
         for (Carro carro : listaDeCarros) {
             Label marcaLabel = new Label("Marca: " + carro.getMarca());
             Label corLabel = new Label("Cor: " + carro.getCor());
             Label anoLabel = new Label("Ano: " + carro.getAno());
-    
+
             vbox.getChildren().addAll(marcaLabel, corLabel, anoLabel);
         }
-    
+
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(vbox);
-    
+
         Scene scene = new Scene(scrollPane, 400, 300);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void initialize() {
+        if (columnMarca != null) {
+            columnMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        } else {
+            System.err.println("columnMarca is null");
+        }
+        if (columnCor != null) {
+            columnCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
+        } else {
+            System.err.println("columnCor is null");
+        }
+        if (columnMaterial != null) {
+            columnMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
+        } else {
+            System.err.println("columnMaterial is null");
+        }
+
+        // Configura a tabela
+        tableCadeiras.setItems(listaDeCadeiras);
     }
 }
