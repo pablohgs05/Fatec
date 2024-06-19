@@ -1,5 +1,7 @@
 package ex1;
 
+import java.util.Optional;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,12 +10,16 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -180,7 +186,7 @@ public class PrimaryController {
         columnCor.setCellValueFactory(new PropertyValueFactory<>("cor"));
         columnMaterial.setCellValueFactory(new PropertyValueFactory<>("material"));
 
-        // Configura a tabela
+        //Configura a tabela
         tableCadeiras.setItems(listaDeCadeiras);
         carregarCadeiras();
     }
@@ -194,15 +200,56 @@ public class PrimaryController {
     void editCadeira(ActionEvent event) {
         Cadeira selectedCadeira = tableCadeiras.getSelectionModel().getSelectedItem();
         if (selectedCadeira != null) {
-            txtMarcaCadeira.setText(selectedCadeira.getMarca());
-            txtCorCadeira.setText(selectedCadeira.getCor());
-            txtMaterialCadeira.setText(selectedCadeira.getMaterial());
+            //mostrando caixinha para editar cadeira
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Editar Cadeira");
+            dialog.setHeaderText("Modifique os detalhes da cadeira selecionada:");
 
-            tableCadeiras.getSelectionModel().clearSelection();
+            //instanciando entradas de texto
+            DialogPane dialogPane = dialog.getDialogPane();
+            TextField marcaField = new TextField(selectedCadeira.getMarca());
+            TextField corField = new TextField(selectedCadeira.getCor());
+            TextField materialField = new TextField(selectedCadeira.getMaterial());
+            dialogPane.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+            //criando grid para organizar as entradas de texto
+            GridPane grid = new GridPane();
+            grid.setHgap(10);
+            grid.setVgap(10);
+            grid.add(new Label("Marca:"), 0, 0);
+            grid.add(marcaField, 1, 0);
+            grid.add(new Label("Cor:"), 0, 1);
+            grid.add(corField, 1, 1);
+            grid.add(new Label("Material:"), 0, 2);
+            grid.add(materialField, 1, 2);
+            dialogPane.setContent(grid);
+
+            //mostrando a caixinha e atualizando a cadeira
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                try {
+                    selectedCadeira.setMarca(marcaField.getText());
+                    selectedCadeira.setCor(corField.getText());
+                    selectedCadeira.setMaterial(materialField.getText());
+
+                    cadeiraBD.atualizar(selectedCadeira);
+                    tableCadeiras.refresh(); //atualiza a tabela
+                    carregarCadeiras();  //atualiza a lista no banco
+                } catch (Exception e) {
+                    //exception caso ocorra erro ao atualizar
+                    e.printStackTrace(); 
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erro ao atualizar");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Ocorreu um erro ao atualizar a cadeira.");
+                    alert.showAndWait();
+                }
+            } 
         } else {
+            //por fim, caso não tenha nenhuma cadeira selecionada:
             Alert alert = new Alert(AlertType.WARNING);
             alert.setTitle("Nenhuma seleção");
-            alert.setHeaderText("Nenhuma cadeira selecionada");
+            alert.setHeaderText(null); 
             alert.setContentText("Por favor, selecione uma cadeira na tabela.");
             alert.showAndWait();
         }
